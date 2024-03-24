@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diplom", "Diplom\Diplom.csproj", "{73323498-5F5C-469C-9C2A-8A696416918A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlockchainApp", "BlockchainApp", "{03874838-CC3C-4912-ABC8-6C842BD8C120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diplom.Blockchain", "Diplom.Blockchain\Diplom.Blockchain.csproj", "{381F36F6-A9C7-4C2C-B110-502DAEC23D70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MedicalCard", "MedicalCard", "{A0E1E488-CD54-4DEB-BC07-AA279C8F0448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diplom.MedicalCard", "Diplom.MedicalCard\Diplom.MedicalCard.csproj", "{3B3FEBA8-FC09-459D-BBB2-1FB5727E9557}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,17 @@ Global
 		{73323498-5F5C-469C-9C2A-8A696416918A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73323498-5F5C-469C-9C2A-8A696416918A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73323498-5F5C-469C-9C2A-8A696416918A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381F36F6-A9C7-4C2C-B110-502DAEC23D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381F36F6-A9C7-4C2C-B110-502DAEC23D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381F36F6-A9C7-4C2C-B110-502DAEC23D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381F36F6-A9C7-4C2C-B110-502DAEC23D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3FEBA8-FC09-459D-BBB2-1FB5727E9557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3FEBA8-FC09-459D-BBB2-1FB5727E9557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3FEBA8-FC09-459D-BBB2-1FB5727E9557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3FEBA8-FC09-459D-BBB2-1FB5727E9557}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{381F36F6-A9C7-4C2C-B110-502DAEC23D70} = {03874838-CC3C-4912-ABC8-6C842BD8C120}
+		{3B3FEBA8-FC09-459D-BBB2-1FB5727E9557} = {A0E1E488-CD54-4DEB-BC07-AA279C8F0448}
 	EndGlobalSection
 EndGlobal

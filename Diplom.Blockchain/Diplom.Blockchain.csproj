@@ -4,13 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <OutputType>Exe</OutputType>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Diplom.Blockchain\Diplom.Blockchain.csproj" />
-      <ProjectReference Include="..\Diplom.MedicalCard\Diplom.MedicalCard.csproj" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
