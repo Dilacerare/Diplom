@@ -17,7 +17,7 @@ public class Block
     public string Hash { get; set; }
 
     [JsonProperty]
-    internal string Data { get; set; }
+    public string Data { get; set; }
 
     [JsonProperty]
     internal string PreviousHash { get; set; }

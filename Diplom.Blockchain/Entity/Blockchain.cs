@@ -55,4 +55,13 @@ public class Blockchain
 
         return true;
     }
+    public Block GetBlockByHash(string hash)
+    {
+        return Chain.FirstOrDefault(block => block.Hash == hash);
+    }
+
+    public Block GetBlockByIndex(int index)
+    {
+        return Chain.FirstOrDefault(block => block.Index == index);
+    }
 }

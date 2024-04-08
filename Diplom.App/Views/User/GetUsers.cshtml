@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Diplom.Domain.ViewModels.UserViewModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+<table class="table table-striped">
+    <thead class="table-light">
+    <tr>
+        <th scope="col">Логин</th>
+        <th scope="col">Роль</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in @Model)
+    {
+        <tr>
+            <td>@user.Login</td>
+            <td>@user.Role</td>
+        </tr>
+    }
+    </tbody>
+</table>
