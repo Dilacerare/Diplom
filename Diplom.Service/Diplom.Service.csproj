@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Diplom.Blockchain\Diplom.Blockchain.csproj" />
       <ProjectReference Include="..\Diplom.DAL\Diplom.DAL.csproj" />
       <ProjectReference Include="..\Diplom.Domain\Diplom.Domain.csproj" />
     </ItemGroup>

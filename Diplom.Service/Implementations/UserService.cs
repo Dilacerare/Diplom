@@ -1,4 +1,5 @@
-﻿using Diplom.DAL.Interfaces;
+﻿using Diplom.BlockchainApp.Entity;
+using Diplom.DAL.Interfaces;
 using Diplom.Domain.Entity;
 using Diplom.Domain.Enum;
 using Diplom.Domain.Extensions;
@@ -8,6 +9,7 @@ using Diplom.Domain.ViewModels;
 using Diplom.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Diplom.Service.Implementations;
 
@@ -89,14 +91,16 @@ public class UserService : IUserService
     {
         try
         {
+            Blockchain blockchain = BlockchainFileManager.LoadBlockchain("..\\Diplom.Blockchain\\Source\\blockchain.json");
+            
             var users = await _userRepository.GetAll()
                 .Select(x => new UserViewModel()
-                {
-                    Id = x.Id,
-                    Login = x.Login,
-                    Role = x.Role.GetDisplayName()
-                })
-                .ToListAsync();
+                    {
+                        Id = x.Id,
+                        Login = x.Login,
+                        Role = x.Role.GetDisplayName(),
+                        MedicalCard = JsonConvert.DeserializeObject<MedicalRecord>(CryptographyHelper.Decrypt(JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedData, x.PrivateKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedIv))
+                    }).ToListAsync();
 
             _logger.LogInformation($"[UserService.GetUsers] получено элементов {users.Count}");
             return new BaseResponse<IEnumerable<UserViewModel>>()

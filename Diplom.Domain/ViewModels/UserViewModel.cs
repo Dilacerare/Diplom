@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Diplom.Domain.Entity;
 
 namespace Diplom.Domain.ViewModels;
 
@@ -24,4 +25,7 @@ public class UserViewModel
     [Required(ErrorMessage = "Укажите роль")]
     [Display(Name = "Роль")]
     public string Role { get; set; }
+    
+    [Display(Name = "Мед Карта")]
+    public MedicalRecord MedicalCard { get; set; }
 }

@@ -9,7 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Diplom.Blockchain\Diplom.Blockchain.csproj" />
-      <ProjectReference Include="..\Diplom.MedicalCard\Diplom.MedicalCard.csproj" />
+      <ProjectReference Include="..\Diplom.Domain\Diplom.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

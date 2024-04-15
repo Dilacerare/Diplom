@@ -1,8 +1,8 @@
-﻿namespace Diplom.MedicalCard.Entity;
+﻿namespace Diplom.Domain.Entity;
 
 public class MedicalRecord
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string PatientName { get; set; }
     public int Age { get; set; }
     public string BloodType { get; set; }
@@ -10,9 +10,9 @@ public class MedicalRecord
     public string[] Medications { get; set; }
     public string[] MedicalHistory { get; set; }
     
-    public MedicalRecord(string patientName, int age, string bloodType, string allergies, string[] medications, string[] medicalHistory)
+    public MedicalRecord(int id, string patientName, int age, string bloodType, string allergies, string[] medications, string[] medicalHistory)
     {
-        Id = Guid.NewGuid();
+        Id = id;
         PatientName = patientName;
         Age = age;
         BloodType = bloodType;
