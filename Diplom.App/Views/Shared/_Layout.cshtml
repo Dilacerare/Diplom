@@ -10,71 +10,65 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Diplom.App</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Expand at lg</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#">Action</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Another action</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link active text-white" asp-controller="Account" asp-action="Login">
+                            Вход
+                        </a>
                     </li>
                 </ul>
-            </div>
-            <div>
-                @if (!User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active text-white" asp-controller="Account" asp-action="Login">
-                                Вход
-                            </a>
-                            @* <a class="nav-link dropdown-toggle paragraphLayout active text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:'Comic Sans MS'; font-weight: bold;"> *@
-                            @*     Аккаунт *@
-                            @* </a> *@
-                            @* <div class="dropdown-menu" aria-labelledby="navbarDropdown"> *@
-                            @*     <div class="container"> *@
-                            @*         <div class="row"> *@
-                            @*             <div class="col-md-12"> *@
-                            @*                 <ul class="nav flex-column paragraphHome"> *@
-                            @*                     <li class="nav-item text-center"> *@
-                            @*                         $1$ <a class="nav-link active text-white" asp-controller="Account" asp-action="Register"> #1# *@
-                            @*                         Регистрация *@
-                            @*                         $1$ </a> #1# *@
-                            @*                     </li> *@
-                            @*                     <li class="nav-item"> *@
-                            @*                         <a class="nav-link active text-white" asp-controller="Account" asp-action="Login"> *@
-                            @*                             Вход *@
-                            @*                         </a> *@
-                            @*                     </li> *@
-                            @*                 </ul> *@
-                            @*             </div> *@
-                            @*         </div> *@
-                            @*     </div> *@
-                            @* </div> *@
-                        </li>    
-                    }
-            </div>
-            <div>
-                @if (User.Identity.IsAuthenticated)
-                    {
-                        <p>@User.Identity.Name</p>
-                        @* <a asp-controller="Profile" asp-action="Detail" asp-route-userName="@User.Identity.Name"> *@
-                        @*     <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"> *@
-                        @*         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> *@
-                        @*     </svg> *@
-                        @* </a> *@
-                    
-                        <form method="post" asp-controller="Account" asp-action="Logout">
-                            <input class="btn btn-danger rounded" style="font-family:'Comic Sans MS'; font-weight: bold; font-size:20px;" type="submit" value="Выход" />
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Profile" asp-action="Detail" asp-route-login="@User.Identity.Name">
+                            @User.Identity.Name
+                        </a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <form class="nav-link" method="post" asp-controller="Account" asp-action="Logout">
+                            <input type="submit" value="Выход"/>
                         </form>
-                    }
-            </div>
+                    </li>
+                </ul>
+            }
         </div>
     </nav>
 </header>
@@ -91,6 +85,7 @@
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>

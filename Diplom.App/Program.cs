@@ -1,5 +1,6 @@
 using Diplom.App;
 using Diplom.DAL;
+using Diplom.Service.Implementations;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using NLog.Web;
@@ -27,6 +28,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.InitializeRepositories();
 builder.Services.InitializeServices();
+
+builder.Services.AddHostedService<BlockchainBackgroundService>();
 
 var app = builder.Build();
 

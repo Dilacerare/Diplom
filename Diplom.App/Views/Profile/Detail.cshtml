@@ -1,0 +1,128 @@
+﻿@model Diplom.Domain.ViewModels.ProfileViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <form id="profileForm">
+                    <h5 class="card-title">Ваши анализы</h5>
+                    <input asp-for="Login" hidden="hidden"/>
+                    <div class="mb-3">
+                        <label class="form-label text-black-50">ФИО</label>
+                        <input type="text" class="form-control" asp-for="PatientName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-black-50">Возраст</label>
+                        <input type="text" class="form-control" asp-for="Age">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-black-50">Группа крови</label>
+                        <input type="text" class="form-control" asp-for="BloodType">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-black-50">Аллергии</label>
+                        <input type="text" class="form-control" asp-for="Allergies">
+                    </div>
+
+                    <div class="card-buttons-group">
+                        <button class='btn btn-primary' id='saveProfile'>Сохранить</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body" style="overflow-y: auto; max-height: 300px;">
+                <h5 class="card-title">Медицинские отчеты</h5>
+                <div class="mb-3">
+                    @foreach (var report in Model.MedicalReports)
+                    {
+                        <div class="medical-report-item">
+                            <h6>@report.Conclusion</h6>
+                            <p>@report.Description</p>
+                            <p>@report.Recommendation</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>     
+        $('#saveProfile').on('click', function (e) {
+            e.preventDefault();
+            const data = $('#profileForm').serialize()
+            $.ajax({
+                url: '@Url.Action("Save", "Profile")',
+                type: 'POST',
+                data: data,
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей'
+                    })
+                },
+                error: function (data) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
+                }
+            });
+        });
+    </script>
+}
+
+@* <table class="table table-striped"> *@
+@*     <thead class="table-light"> *@
+@*     <tr> *@
+@*         <th scope="col">Имя</th> *@
+@*         <th scope="col">Возраст</th> *@
+@*         <th scope="col">Группа крови</th> *@
+@*         <th scope="col">Аллергии</th> *@
+@*         <th scope="col">Мед карта</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*     <tr> *@
+@*         <td>@Model.PatientName</td> *@
+@*         <td>@Model.Age</td> *@
+@*         <td>@Model.BloodType</td> *@
+@*         <td>@Model.Allergies</td> *@
+@*         <td> *@
+@*             <ul> *@
+@*                 @foreach (var medication in Model.Medications) *@
+@*                 { *@
+@*                     <li>@medication</li> *@
+@*                 } *@
+@*             </ul> *@
+@*         </td> *@
+@*         <td> *@
+@*             <ul> *@
+@*                 @foreach (var history in Model.MedicalHistory) *@
+@*                 { *@
+@*                     <li>@history</li> *@
+@*                 } *@
+@*             </ul> *@
+@*         </td> *@
+@*     </tr> *@
+@*     </tbody> *@
+@* </table> *@
+

@@ -99,7 +99,8 @@ public class UserService : IUserService
                         Id = x.Id,
                         Login = x.Login,
                         Role = x.Role.GetDisplayName(),
-                        MedicalCard = JsonConvert.DeserializeObject<MedicalRecord>(CryptographyHelper.Decrypt(JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedData, x.PrivateKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedIv))
+                        MedicalCard = JsonConvert.DeserializeObject<MedicalRecord>(CryptographyHelper.Decrypt(CryptographyHelper.DataFromBlock(blockchain, x.HashCode).EncryptedData, x.PrivateKey, CryptographyHelper.DataFromBlock(blockchain, x.HashCode).EncryptedKey, CryptographyHelper.DataFromBlock(blockchain, x.HashCode).EncryptedIv))
+                        // MedicalCard = JsonConvert.DeserializeObject<MedicalRecord>(CryptographyHelper.Decrypt(JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedData, x.PrivateKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedIv))
                     }).ToListAsync();
 
             _logger.LogInformation($"[UserService.GetUsers] получено элементов {users.Count}");
@@ -120,11 +121,11 @@ public class UserService : IUserService
         }
     }
 
-    public async Task<IBaseResponse<UserViewModel>> GetUser(long id)
+    public async Task<IBaseResponse<UserViewModel>> GetUser(string login)
     {
         try
         {
-            var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Login == login);
             if (user == null)
             {
                 return new BaseResponse<UserViewModel>()

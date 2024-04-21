@@ -46,7 +46,7 @@ internal class Program
         // {
         //     Console.WriteLine($"An error occurred: {ex.Message}");
         // }
-        
+
         List<MedicalRecord> medCards = new List<MedicalRecord>
         {
             new MedicalRecord(
@@ -55,28 +55,67 @@ internal class Program
                 35,
                 "AB+",
                 "Пыльца, ацетилсалициловая кислота",
-                new string[] { "Аспирин", "Левомицетин" },
-                new string[] { "Грипп в 2020 году", "Аллергический дерматит" }
+                new List<MedicalReport>
+                {
+                    new MedicalReport
+                    {
+                        Conclusion = "Грипп в 2020 году",
+                        Description = "Описание гриппа",
+                        Recommendation = "Рекомендации для лечения гриппа"
+                    },
+                    new MedicalReport
+                    {
+                        Conclusion = "Аллергический дерматит",
+                        Description = "Описание аллергического дерматита",
+                        Recommendation = "Рекомендации для лечения дерматита"
+                    }
+                }
             ),
-            
+
             new MedicalRecord(
                 2,
                 "Петрова Мария Сергеевна",
                 45,
                 "A-",
                 "Пищевые добавки",
-                new string[] { "Кальций", "Витамин С" },
-                new string[] { "Остеопороз", "Гипертония" }
+                new List<MedicalReport>
+                {
+                    new MedicalReport
+                    {
+                        Conclusion = "Остеопороз",
+                        Description = "Описание остеопороза",
+                        Recommendation = "Рекомендации для лечения остеопороза"
+                    },
+                    new MedicalReport
+                    {
+                        Conclusion = "Гипертония",
+                        Description = "Описание гипертонии",
+                        Recommendation = "Рекомендации для лечения гипертонии"
+                    }
+                }
             ),
-            
+
             new MedicalRecord(
                 3,
                 "Сидоров Николай Александрович",
                 60,
                 "O+",
                 "Пыльца",
-                new string[] { "Аллергин", "Кетотифен" },
-                new string[] { "Бронхиальная астма", "Пневмония в 2018 году" }
+                new List<MedicalReport>
+                {
+                    new MedicalReport
+                    {
+                        Conclusion = "Бронхиальная астма",
+                        Description = "Описание бронхиальной астмы",
+                        Recommendation = "Рекомендации для лечения бронхиальной астмы"
+                    },
+                    new MedicalReport
+                    {
+                        Conclusion = "Пневмония в 2018 году",
+                        Description = "Описание пневмонии",
+                        Recommendation = "Рекомендации для лечения пневмонии"
+                    }
+                }
             )
         };
         

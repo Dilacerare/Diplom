@@ -12,7 +12,7 @@ public interface IUserService
         
     Task<BaseResponse<IEnumerable<UserViewModel>>> GetUsers();
         
-    Task<IBaseResponse<UserViewModel>> GetUser(long id);
+    Task<IBaseResponse<UserViewModel>> GetUser(string login);
         
     Task<IBaseResponse<bool>> DeleteUser(long id);
         

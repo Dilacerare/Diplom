@@ -7,18 +7,17 @@ public class MedicalRecord
     public int Age { get; set; }
     public string BloodType { get; set; }
     public string Allergies { get; set; }
-    public string[] Medications { get; set; }
-    public string[] MedicalHistory { get; set; }
+    public List<MedicalReport> MedicalReports { get; set; }
     
-    public MedicalRecord(int id, string patientName, int age, string bloodType, string allergies, string[] medications, string[] medicalHistory)
+    public MedicalRecord(int id, string patientName, int age, string bloodType, string allergies, List<MedicalReport> medicalReports)
     {
         Id = id;
         PatientName = patientName;
         Age = age;
         BloodType = bloodType;
         Allergies = allergies;
-        Medications = medications;
-        MedicalHistory = medicalHistory;
+        MedicalReports = medicalReports;
+        
     }
     
     public void DisplayMedicalRecord()
@@ -28,16 +27,16 @@ public class MedicalRecord
         Console.WriteLine("Blood Type: " + BloodType);
         Console.WriteLine("Allergies: " + Allergies);
         
-        Console.WriteLine("Medications:");
-        foreach (string medication in Medications)
-        {
-            Console.WriteLine("- " + medication);
-        }
-        
-        Console.WriteLine("Medical History:");
-        foreach (string entry in MedicalHistory)
-        {
-            Console.WriteLine("- " + entry);
-        }
+        // Console.WriteLine("Medications:");
+        // foreach (string medication in Medications)
+        // {
+        //     Console.WriteLine("- " + medication);
+        // }
+        //
+        // Console.WriteLine("Medical History:");
+        // foreach (string entry in MedicalHistory)
+        // {
+        //     Console.WriteLine("- " + entry);
+        // }
     }
 }

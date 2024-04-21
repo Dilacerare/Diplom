@@ -1,0 +1,69 @@
+{
+  "Chain": [
+    {
+      "Index": 0,
+      "Timestamp": "2024-04-18T12:40:14.1788011+05:00",
+      "Hash": "22mfqRtALnOQCCxWVdTM8jr0c04/58z+vmFX7+3kUBA=",
+      "Data": "GENESIS_BLOCK",
+      "PreviousHash": "",
+      "Nonce": 0
+    },
+    {
+      "Index": 1,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "00xuDXposF1pCdGsq+eHKMkPPy179CCivgN78FPsdWw=",
+      "Data": "{\"Initiator\":\"Admin\",\"Addressee\":\"Admin\",\"OperationName\":\"Создание\",\"EncryptedKey\":\"WPREd/f5fB/SzJ4ouB0lfoo2WZ6JV4WBxfQF9p1eccj6mBBvkIOMZI0Lumr/oguulCW71ZFTulf0SDFyOlkS34beW4+xuBdwm3MIuPQ+SJUYDaEjlL1NjCXnd4jX/R97H3HlTuITN1FZ/r6ccOwwDxky8o7fISzY7OtCI9IUJdpQHFC7kRcUZaxOOu8fMsg9wIiVjFW0/WDgAUxrvB2sE6CHl2cFQeNloy9j1a1beET+ecA6DgcrMsMiR9NDJvkvZn7nBRuy5xaxmCtGZmKybnHc7nmL2mv1YOhDUTD2Xc7grmJdFnErmq49Mih+6IzPuIKL5afFwwclKbZ7gw7imQ==\",\"EncryptedIv\":\"Kz4+Tc+bW6SBGcZCCucf3zQsO39/HGSBWRxV3G/rewkJtxb7FCYPqlaaKX9C/l25qLA0AgvUHhrxj9ImmtMI0vLIPp1rCvk30DJbht5Ntg6MAtEEXLrgCxq8KVGGwGYe3z3AXuAFOTymhSvjQZQrITyA/juxOzKTIVo7A+nMEkQGeNHd4c5tiNRQpYHZnbAu/ln7rYHhASO2vX4J+m+mjX4ZZTb07zj4O+zX29LjQbeBhXOAJJCN7uaUNaPNv7KkPswBNX2fNAO0088rGydYN6KCwDMwl36+Kk6UsU/InH6jWat9a2xitib0TusCT/6U3smVxPMAAW+rkzHdE9jKuw==\",\"EncryptedData\":\"F4AhHGDV2vGQI+tEXD4hA9x9LySS9reaj/AkOczjFQNVeP5zgZqB+vz8FeMUSaqYiFSRGh5jQiAW/yQwbywFX4RsjsJj0JpQU65FNoqN9ejMUyZ0kTuz/lkTgqZbNJfIGmbQHY04aEJj9rI+fv0ftwS4aQ+YdJHgLxl8fIhnSt15033pRahWH7xYVAj1Z02vabirv9qR1+AO4ym6Q/QY4ZJSNaUlgN+ewAPz60+l9ce03Gg9kxVPwr/p27KxbSyS9aWRDyOZHBSlbY1zZvzwT9vTar7CnEHy76ErJGlVN8zjj5Y/Jh+Ah0IdVq4AEjqcBIj+SVQl1Fe789vPLZr+qzqep5Mdm0ZH7dHI6uZe2swP7unoRdnu2Ic3Tu7gLyB90n8ePT9GmXZYC29UM2FdZwn5gpxyqZUtNByp4qBmi5ZjS1ua5b581L3QWDj2Ir6zKaJ1ir+/wSxBv2KIIPHCVWbTdgRPXSG5pODJKRYtJ/GFHVrUmpQQl70mkBk3X2OWE5wbwLPpi9gb9RsRTviomhyYAoExv5pGXQJeJuQxSSPjSsMcUr+E6sWx2mdBSYUztTbVDPJNkwHPDRXSCHREXdwkhZWkrVNlYfY8JoXAms4O8Cozq5KmgEnZEyu9FFYDdAMkrICgSPltn2qbCdANohQ8Ks7/4WSV9zHBno0rOTB9QkwqOZW7/3n8JVZyfV4svzTdGhKjIaabh6DcWO1PNEgUUIoLTdCmBoy1ueMbyF3/e3tBGchQjn1HgBdoVYmjYNc7NOM/03orcTEcV6H1mQ==\"}",
+      "PreviousHash": "22mfqRtALnOQCCxWVdTM8jr0c04/58z+vmFX7+3kUBA=",
+      "Nonce": 4146
+    },
+    {
+      "Index": 2,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "00eS/ABrKOyjGlyM9cX1Jb8jMbJt9nDepTpMcnqeT3E=",
+      "Data": "{\"Id\":2,\"PatientName\":\"Петрова Мария Сергеевна\",\"Age\":45,\"BloodType\":\"A-\",\"Allergies\":\"Пищевые добавки\",\"MedicalReports\":[{\"Conclusion\":\"Остеопороз\",\"Description\":\"Описание остеопороза\",\"Recommendation\":\"Рекомендации для лечения остеопороза\"},{\"Conclusion\":\"Гипертония\",\"Description\":\"Описание гипертонии\",\"Recommendation\":\"Рекомендации для лечения гипертонии\"}]}",
+      "PreviousHash": "00xuDXposF1pCdGsq+eHKMkPPy179CCivgN78FPsdWw=",
+      "Nonce": 7325
+    },
+    {
+      "Index": 3,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "00E9+FAgCzvZ6L/UFWHdbeqnmA7NR1n+H5qCDeKL6lg=",
+      "Data": "{\"Id\":3,\"PatientName\":\"Сидоров Николай Александрович\",\"Age\":60,\"BloodType\":\"O+\",\"Allergies\":\"Пыльца\",\"MedicalReports\":[{\"Conclusion\":\"Бронхиальная астма\",\"Description\":\"Описание бронхиальной астмы\",\"Recommendation\":\"Рекомендации для лечения бронхиальной астмы\"},{\"Conclusion\":\"Пневмония в 2018 году\",\"Description\":\"Описание пневмонии\",\"Recommendation\":\"Рекомендации для лечения пневмонии\"}]}",
+      "PreviousHash": "00eS/ABrKOyjGlyM9cX1Jb8jMbJt9nDepTpMcnqeT3E=",
+      "Nonce": 4058
+    },
+    {
+      "Index": 4,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "00qpbr5Sd6xZrPRBrFyLpcbHxsL4zbcuxVodTfCblwk=",
+      "Data": "{\"Initiator\":\"Admin\",\"Addressee\":\"Admin\",\"OperationName\":\"Редактирование профиля\",\"EncryptedKey\":\"HqvjexLbcRmvH9FhPfGMTPFEos59akKUNtVihbYIUn62izhNE+tiMsg/ATbUxsggyw9bf3SmuislDam5iYVH8I+xDq+LYrhxO8sCpoaXxB+th9UkErLznPKAUN0DYDD0ggHEQ8UatMJWBBcOKUG04kh/T7z4gsollNrLYUjWuR7R72nCQ9GMw3q03tbazuRqbFW59iK+RHOo83lnxvPD8vJyeftlePeEKHnEMN65GZuEG3/WCFwvP8RWxiSLDvuPt4QoIAc24M8/+B8DcBsFGGvUIO/PejRMusK+/fQr4C82ng0Vie++NdhBxZaikyVR37IFjQ9R+Szr1buAtHnTyw==\",\"EncryptedIv\":\"WuktjJ7zxoc/G05TBFefVQ9hImibmxKAuHmr4OoA9u4b+R3XKiTlqgxlmY7OvN6/4j2yJmlnETz28VQPJnAIHW3TBO38F56IwMfUKCo9yERA8PBarb7f0JrRcuq7QXhbUeBvD7SMdzAXehMBVYtJG5R588013BmVcWOvhEkoLWr9XwIaf9i+9zZ9ESxHY8pojwuG1ctrCwHWPRi8DFi3sRvBe++Gb7DBpvOURr2El5CeAVrP0r74XlJg4JSUOoA5s8r+QEV4xjxfFjA3h/9h+I5FfVOeeoddYXfA7f0ju8m+UWxN7GzcmV8PZ7/a9H3BVaxtShqNL/Re7hiyoi3YfA==\",\"EncryptedData\":\"9fMqB0Z0G0zSVJ3vaBG0t0CErL4HGlsSxeZfzUgksEK5HBqt2CPb+56+J3YrBsEyHsrNLhlcAW10UVUnyGDaoKRM7Fl1pL9oST6zOqwISMRe6xFAx7ggbvArfNTTY4SDVSE0al5ZUuphh6gGdlTd+4Xc0nMtEYtoRq1P5+bS2Xu+Jh7WJJT+HATEJAQ77R1qfAMjOxRraQ/uPGCeCa0V4IV90Mft9CAna+a/MqTS0Q5bgV9eA4wUppoPZ+RSotZzXtvUX2LkzHMpnRb8luxZqtwRT8RKTs+QC3J57GbI1ly/S/swb7aALnLIY6jkhw6T685pmWtWTiALNq3JSwU9Gind2C4lTkZaVUQ2DUPMM+BMDgGu+01S5dCbTNCTaRnaZvV9LY/zCUekWTGNQ9LuPwkT4D1+3s0gDHjtTrrOrYKmCWST7TuxYb2peOUi45ENgdvrzG+04g4IlEQISZ3fRWpjfeKnJKWMBNnJcY4pQ5vcUfcfTc3PGQUex1JmchW8JemRQ1zuD6uSRY0H2WPUxm45Iz2n0t68CrC79SKghOCIhHcWOM+B7cB6O/7EB5Js1mQvu2yWaIBkQgAaiJ6/7ALC7O0eV4Z9Uz8XsaNOTnTKluKuNRiEQYeVMyd0upuT4nTrK2qiXvg39Up8U+GgE/o8zBimKNe+npDz+xfUwRJiGxUcv9q0t5n8zdSnaDdS/T7X0PXpiRvlq+MJCU3p+JYgBn7mFIfRED5qY07lHePq+QXWwSrABz2z4MoSWkKPdDFwHz26lq6QIJgE1kaFqg==\"}",
+      "PreviousHash": "00E9+FAgCzvZ6L/UFWHdbeqnmA7NR1n+H5qCDeKL6lg=",
+      "Nonce": 5878
+    },
+    {
+      "Index": 5,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "00rGoeXsfy68J7ONq0bhPivskcDIpFmG1J2qi19sH7A=",
+      "Data": "{\"Initiator\":\"Admin\",\"Addressee\":\"Admin\",\"OperationName\":\"Редактирование профиля\",\"EncryptedKey\":\"fdRH8CiIs51CE+FQwWaX1eHgUyViysG+r+D4o6HFBNL/BmRwj4vrXb32LsMWGq4Jl+Xg+YoclyB0t1Cag5vB/daDESgl57i7GkZGl1y0QTk5NXLbande6AMeCVmAc3vXvS0kULfZpT748LK88cheaO+M5/EaAbuOz1VXcrjMk5W786OiValPolX+r2avneDdkYDtux/tsXVPbzwlvmRmunjTTNuHVz8w9jgvSl43Qj7m1GVG9z44MBtUsC7TkT8ZdaZoTI1s8hJ3QGWvSfrjLncFqf37Ef2wmFJG/eys69VBU8IavLy0hu224xvkER04+SDEm8fRIvgjlOy0xD6aVQ==\",\"EncryptedIv\":\"K+Uy0FpUcv+2A9hsnlBZWFBsuw6kCP1k7pn9jKMIrduwwf1VyorZI4ZCHudWE9P3O7M5ymlTWwj9GLl20M95wzaCRmLyHJpNqlrMUWwIe8XwU9ZPZkWhejhGu1HkstRcCgxUA36sW/101OYgz5adul053EOp1MTu5kl/dwV6Qt+UJqKWifFJ5w7Ui9+jgnO5Q1jWmhOPH63SYP1DtKehZ2yUjvoNGJ3uz2TE9uMbj2uFNkpwZ03W28gNmgMz+62HfQ9XbLQ58hPpORay8aJmip3hiyXOiELMpEIEWScXCQGcNRS5MuAd9UjHAM73OhTx0Wwb8Xu0vnzn1zwX+nWX0g==\",\"EncryptedData\":\"7Xbxk41IzytZag2VraJUNDZ6fMIpqfZMQREB9cf/xOcEvvclR7D2uXT7z+Q8f56E7Lk7HcNYgoYQkj1TI2+LZwTDyEe0jwUApY4M14mI71kVyEShkPgLWkF7DTf0s6EkFREpafxQY4pByneqDJimZia1+ZM6BhhbA3RvHkyxXd5mNM+Mn4hNJfqjQCSi6jsDqNj97QVgLA12l/5DCz/8U7rJ1Mc6n4PAc5+rfmq+mPgCbaIcDhMDWOCjLDw0WwlgtN5k7SdehhEwb6QtFEQRSPV2nuXkvSkGD5R7qy+SXssdlg9GbZvaD+wod25I69gEu6X0dZb0+OYCHi2YuvW7aKWUlHJKvKLe6vKNhAAjDYjPb/Kf0NHtAsS0g+r7+k+CWz6SGEHxQRdSZCuops9UPZ0SR9SEPqueicnx4bIYxUtMWHM3yDAVvmo74o1l1UmcEAnMOgApKD5/wGt1UZARug7jS0Ub0ErGzDS5yndD+MdgodRQqwZA2QmLaYceGOGvAZidV7u5ntVjN3A5Pbq5V+6lm6kMeflSK3jjrsr7Zq1JvQIPGXmMre9SPQD/GYffa6VXmWZX3LsO6UdV1w9lrCRiU2wwDIblyXGfvkvBY1A1QL+PS11WlNXbya6bEBTADtD9Y9ftuybBMZRjy5fzvbYmTxB2obrTM6EOswl8jduwE+O8a8XFHL8JR7nCnvgKbJj4d8gG4EYInxQF47q8Nx3N+jVRlG2cTZRJdhl9RXd4yzwku/5FYxmZjxXVkzhxELkTGaZJyXxAdXt5ZHXuYQ==\"}",
+      "PreviousHash": "00qpbr5Sd6xZrPRBrFyLpcbHxsL4zbcuxVodTfCblwk=",
+      "Nonce": 16862
+    },
+    {
+      "Index": 6,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "00b35GmsqBpHD9kUEyb4hMlb7SmFtvGohSZywGWNhDY=",
+      "Data": "{\"Initiator\":\"Admin\",\"Addressee\":\"Admin\",\"OperationName\":\"Редактирование профиля\",\"EncryptedKey\":\"dVQCFH6nvOydPHchxTgS1bJvLtZGe/KLpqdFVHcrwIgUFd/Fq37kNrEMpUtrkp0yLiqPUUgyamSx/uX5013aUZujjjFP3RgWvu4KQUj2I4OZx2jiI6kUnYXScFWA2SdpOVNtHDEnNnVXqJxwHdYW8aUjA14Xs8mAmzF17uWdGhbDGQXEy5VQyvOdK6znv30ISkvaW9TAsnVEq+RwBmjmrMlWTnDUqoAXNmVdWMMmG0GzgIdK3ouKRme3pR6QIbC+lUh43+weaAUiotUcpnvbrUaH7kk+OqStMkas+mm9s+kXVq++9GHjfz7m1iKCplkg8LM2rQUDNXmE0e2nYMpT+g==\",\"EncryptedIv\":\"kAOz1RwoSH/FPmIC6ow4DFd8rDCXwcE2CYe6M6d6b9n7iKfpA1UzmaPU8o7ibdzAiRCRGO3wHVQW1uxORyqGMJQeZvQbJWByIn1LtffnWoqlV1R2Vw0nz3lkFvThVQ279BWGhy6HR2slNQKJA2eE6JpJNTpFecgbFsbqxbMVr75oi/xl3PwTHC9Y2oYU7zUizQpotbnLBu92OTudaHyLRgvqcBFKx/MJWsr8ZPpd65c1/iEjd++j3CUNzHcs0g4273Qx+KY1IIsQknUZlpqKUnYV/rTYwoWu5p6ltlmBFkwwav+APP6n4XNk+cCpBlGpZgn7yHwf6CGRvYAEITcnHg==\",\"EncryptedData\":\"h7hsacTB8Q4uO/HL92hUO9+FQGk2QpS+b1retGb+2cnN1wnEvSmeCNorxKA1W2Ulj44PMh44e2xW+qmeX3j7bWQdZ5yRxPX1XZvUKi/bRQg1G2QxZ9Xd297U0HnfskHSlHxehn4G5WhKm4+XgdyiuHN/yJ6KdjDEM5dNq/abAyTbJ0CMpbT2g78Pw8/jwaGJwe5WaQzPYjmOn3KWnuQRY2OAnz4jy6tKpWl8YlqeMvahCz3IzgqNBIfcfMa4NI/fMZWW3GYeZ4kV/wS3Apnh/UBREKRZTJjKXsTcQzv2vBkLjfR3k/tUOv5cwb3QmPMb3W/hSsBlBPoZXFqFRtz2U25YTNTPDl5ddJL4zrx7N9OzJZtdTsJsgLhd5q9qdncOLwOxE3LxwbgsEtfWNVeHu8ZmZPwEwena/ruNQPj6F7Z1u5kP1Ji8SeJFXbeJPkKSBes4hQz/S55lorDfvQa1vTToptIMwOCFy9yvfc1s+HAPqf5v/AZuCjBsfFD9wu8zaxDbahhUqcgKLVYwvDwcDber7Cn5FVAFyZ5uNsHw4A251Uo9L/MzIByATkOEdfgWQQOy+2+446Ji+ie3p6IFSxo6g3XMWOmTwv9E3A9Q3usnNwyhQOhKYHuvo/SfYTqD9BRoTyDwOOfi3GcnQ/ebZSFAaE+rECfL3YWirdOqfCvpRsk2O9npelkQy5xaaqTy588Kn0Pc7e5RqpOFOPg0R2egul/0hXJLlhnmPJa0a1FHXMgTmPrDT32Ta4j3i91Qe8Akvj/NfZWladFDeao40g==\"}",
+      "PreviousHash": "00rGoeXsfy68J7ONq0bhPivskcDIpFmG1J2qi19sH7A=",
+      "Nonce": 5964
+    },
+    {
+      "Index": 7,
+      "Timestamp": "0001-01-01T00:00:00",
+      "Hash": "0015r7L0AvmEpgJd7jeMEVr4TecnXdZ700Ru+mxwA4A=",
+      "Data": "{\"Initiator\":\"Admin\",\"Addressee\":\"Admin\",\"OperationName\":\"Редактирование профиля\",\"EncryptedKey\":\"I5J/+S+GCDMdYX6fol5JGepep6UJYzRehqU9EWQjBlsvvzImtLAYWQjvgWOCr/XdGzEsxLneAGgBvlS2nw/OURVeLU0f3YyGc4L6oteHjGGo+/gXMJmHQ8SmcdKt03Gttn9t4+vbcKzmVcHE3WJdnwNEPiGUQ1PuBMkiZEn7pnLs0zO8+KYOLNZ797UG9rMX5YAtuZCDLgwNMktTCd6wfJ6lh0wRW4uXGTE1viENARmMxqgvetww9ZM8cd8QgPj8V59F6fS21ZX6x6pMSg4P4g/GbaO9oR+sOnt0YtxCVjhRh4NCjROH5Hi38IsUd9S6jSfl0qa972ByDZ6bviyBsQ==\",\"EncryptedIv\":\"Ftdg2UXrD4GRZZCFZs09wbqMNwUTvbnASrsAyDspz5DrO5cWq254Yfa4i2hEBPqCeioyR3r1uKL7iJ2lqjtdAs/lfo7xuxRgznFjc0TJtGP/P/Zf3ryrhdeiNim4WPu/NuIyo4TCtQTeFrBtWLaumb4aHBKs6zHOBt4iSxqYeeW1N/+pmg4Ybc/calDw/fPQ/Cu3dJwUuZT9gcqrjNKbNhaVO4XVv1LAuTSBQgCAluWWQ8T9AIaDkXWMch2xr2F782nBHCjknMqRc5uw+HzV4h6CoIMbc2DUpr8vJ0RqcOzbhtUwnx3bD8YeCu6ZC+Xs3DKKoShypxIbmynYec760w==\",\"EncryptedData\":\"mfuDkfYHYnCmqongVZtWtHxl4TNkFNC54iS2aZ8qdswZ2RHntPi1BMTPwpoKBi1LHH11PcgwOC73+fMstlTUW9VpWMKFXdlav/IEGI+8FbEivMFPhb1P3+bQuJjMQ6KB9JguubT10e3ZJcDe1qWepBz8+D8Ec2vCwKToc13Udnfncu6Nu77BsFnvKaaWUIJf7kwGTX68wHBYjacxiUdYs3fPqooJsHFkojrLLAuHmyqYV3SB5QxbLCYIkaqbS5SZtBMKUwUEpiYaL3rnzO0OUpm042gkTKwo7/JNNiPMorEPXFjIk1B2KC53lDYWKcJNFMLIs/41+ldQTnMzMe058rSgZJ5qDByRaqWkNw9/kMkQtv6CDirZVEAQ62ZvyU5c4ErhzL938ffXVCXy/Km+AMEcydF2cqKNuQtirdzq977/zN+n02VUXcN/5q7WjnqjaI9uVrCjR681gAKxswPNRVqdKhQiOHwL4CkoXDt+u7JqX2QNK3F3FoSVH7V/IpUsoVD6q8fUiZ53uVsE+Xv6fhMylYX/NbnRAZn1r7+wN4/Ow9djvrR619Dd6vFodEupjU7X8ak68dnj/3Jv87mi+Pc3zukZxCrBe0famaxfiD2PAj1OV2LAPBWeG4seEUQdc+5k/UUCL8w3WFSAHaeqotw7CeLrzM2acG7mQUa/hbGJjGi8ExM+mL5pmy2nC/NL3Xib9vMEstY7y0Awf72iQwUo0lqgcEgI3BwFHsaPAiMQ952eEuSFdBoOZmsIrQ7t5D0FEXCvyZtAFxb44k51Kg==\"}",
+      "PreviousHash": "00b35GmsqBpHD9kUEyb4hMlb7SmFtvGohSZywGWNhDY=",
+      "Nonce": 6411
+    }
+  ],
+  "Difficulty": 2
+}

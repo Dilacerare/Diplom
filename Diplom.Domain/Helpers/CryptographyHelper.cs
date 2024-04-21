@@ -1,4 +1,7 @@
 ﻿using System.Security.Cryptography;
+using Diplom.BlockchainApp.Entity;
+using Diplom.Domain.Entity;
+using Newtonsoft.Json;
 
 namespace Diplom.Domain.Helpers;
 
@@ -57,5 +60,10 @@ public static class CryptographyHelper
 
             return decryptedText;
         }
+    }
+
+    public static DataBlock DataFromBlock(Blockchain blockchain, string hashCode)
+    {
+        return JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(hashCode).Data);
     }
 }
