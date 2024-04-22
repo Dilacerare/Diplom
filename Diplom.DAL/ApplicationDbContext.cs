@@ -39,7 +39,7 @@ public class ApplicationDbContext : DbContext
                     Id = 1,
                     Login = "Admin",
                     Password = HashPasswordHelper.HashPassword("123456"),
-                    HashCode = "00qpbr5Sd6xZrPRBrFyLpcbHxsL4zbcuxVodTfCblwk=",
+                    HashCode = "0015r7L0AvmEpgJd7jeMEVr4TecnXdZ700Ru+mxwA4A=",
                     // HashCode = "test",
                     PublickKey = "<RSAKeyValue><Modulus>vA96FyTLc5xhPkfz6i3Ghe3O3y/qCefPGjpj6rIh5QhryDTsxvjzZoopGxMbCex0KN5hbgSJ9sIzvRD+pRio/lDBqxclXoPJ+mRl3cldhdZFjBl0mrDdcAI6Zktwbd3JfN2uNFW5jd3jql6YsYUKbYYpYq57giWsJ/hL68Fo+N6Chox7+3uH8Lthaiji32mwpTeMNvoo7QKz+vKh1mUhWHGVjRKaNzq4RyqT62H+XFw4lYZf/nPmioG0LuGw/3P2F9IkWEB4RAnwcocq9Xkl+EI/42NMCR9s5SwOD1KW1T9+NhULCrTzZgLCoqHy5xCFABxGNHFcSfk3qrjnZJ09cQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>",
                     // PublickKey = publicKey,
