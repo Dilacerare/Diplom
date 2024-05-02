@@ -13,6 +13,7 @@ public static class Initializer
     {
         services.AddScoped<IBaseRepository<User>, UserRepository>();
         services.AddScoped<IBaseRepository<Buffer>, BufferRepository>();
+        services.AddScoped<IBaseRepository<AccessPermission>, AccessPermissionRepository>();
     }
 
     public static void InitializeServices(this IServiceCollection services)
@@ -21,5 +22,6 @@ public static class Initializer
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<IProfileService, ProfileService>();
         services.AddScoped<IBufferService, BufferService>();
+        services.AddScoped<IAccessPermissionService, AccessPermissionService>();
     }
 }

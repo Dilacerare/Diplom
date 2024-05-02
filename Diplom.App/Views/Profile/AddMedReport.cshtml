@@ -1,0 +1,61 @@
+﻿@model Diplom.Domain.ViewModels.MedicalReportViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container form-container">
+    <h2 class="mb-4">Добавление медицинского отчета</h2>
+    <form id="reportForm">
+        <div class="form-group">
+            <label>Диагноз:</label>
+            <input asp-for="Conclusion" type="text" class="form-control" id="Conclusion" name="Conclusion">
+            <span class="error"><!-- Ошибка выводится здесь --></span>
+        </div>
+        <div class="form-group">
+            <label>Описание:</label>
+            <input asp-for="Description" type="text" class="form-control" id="Description" name="Description">
+            <span class="error"><!-- Ошибка выводится здесь --></span>
+        </div>
+        <div class="form-group">
+            <label >Рекомендации:</label>
+            <input asp-for="Recommendation" type="text" class="form-control" id="Recommendation" name="Recommendation">
+            <span class="error"><!-- Ошибка выводится здесь --></span>
+        </div>
+        <input type="hidden" id="Login" name="Login" value="@ViewBag.Login">
+        <input type="hidden" id="Initiator" name="Initiator" value="@User.Identity.Name">
+        <button type="submit" id="addReport" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+
+@section Scripts
+{
+    <script>     
+        $('#addReport').on('click', function (e) {
+            e.preventDefault();
+            const data = $('#reportForm').serialize()
+            $.ajax({
+                url: '@Url.Action("AddMedReport", "Profile")',
+                type: 'POST',
+                data: data,
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей'
+                    })
+                },
+                error: function (data) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
+                }
+            });
+        });
+    </script>
+}

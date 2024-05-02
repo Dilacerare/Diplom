@@ -1,4 +1,4 @@
-﻿@model Diplom.Domain.ViewModels.ProfileViewModel
+﻿@model Diplom.Domain.ViewModels.ProfileAccessViewModel
 
 @{
     ViewBag.Title = "title";
@@ -9,12 +9,12 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <form id="profileForm">
-                    <h5 class="card-title">Ваши анализы</h5>
-                    <input asp-for="Login" hidden="hidden"/>
+                <h5 class="card-title">Ваши анализы</h5>
+                @if (Model.Access == true)
+                {
                     <div class="mb-3">
                         <label class="form-label text-black-50">ФИО</label>
-                        <input type="text" class="form-control" asp-for="PatientName">
+                        <input type="text" class="form-control" value="@Model.PatientName" readonly>
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-black-50">Возраст</label>
@@ -28,12 +28,14 @@
                         <label class="form-label text-black-50">Аллергии</label>
                         <input type="text" class="form-control" asp-for="Allergies">
                     </div>
-
-                    <div class="card-buttons-group">
-                        <button class='btn btn-primary' id='saveProfile'>Сохранить</button>
+                }
+                else
+                {
+                    <div class="mb-3">
+                        <label class="form-label text-black-50">ФИО</label>
+                        <input type="text" class="form-control" value="@Model.PatientName" readonly>
                     </div>
-
-                </form>
+                }
             </div>
         </div>
     </div>
@@ -43,30 +45,34 @@
             <div class="card-body" style="overflow-y: auto; max-height: 300px;">
                 <h5 class="card-title">Медицинские отчеты</h5>
                 <div class="mb-3">
-                    @if (Model.MedicalReports != null && Model.MedicalReports.Any())
+                    @if (Model.Access == true)
                     {
-                        @foreach (var report in Model.MedicalReports)
+                        @if (Model.MedicalReports != null && Model.MedicalReports.Any())
                         {
-                            <div class="medical-report-item">
-                                <h6>@report.Conclusion</h6>
-                                <p>@report.Description</p>
-                                <p>@report.Recommendation</p>
-                            </div>
+                            @foreach (var report in Model.MedicalReports)
+                            {
+                                <div class="medical-report-item">
+                                    <h6>@report.Conclusion</h6>
+                                    <p>@report.Description</p>
+                                    <p>@report.Recommendation</p>
+                                </div>
+                            }
                         }
+                        else
+                        {
+                            <p>Нет доступных медицинских отчетов</p>
+                        }
+                        <a class="btn btn-primary" asp-controller="Profile" asp-action="AddMedReport" asp-route-login="@Model.Login">
+                            Добавить запись
+                        </a>
                     }
                     else
                     {
-                        <p>Нет доступных медицинских отчетов</p>
+                        <p>У вас нет доступа</p>
                     }
-                    <a class="btn btn-primary" asp-controller="Profile" asp-action="AddMedReport" asp-route-login="@Model.Login">
-                        Добавить запись
-                    </a>
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary" asp-controller="Profile" asp-action="PatientRegistration">
-            Добавить пациента
-        </a>
         <button class="btn btn-primary" id="accessRequest">Запросить доступ</button>
     </div>
 </div>
@@ -75,32 +81,6 @@
 @section Scripts
 {
     <script>     
-        $('#saveProfile').on('click', function (e) {
-            e.preventDefault();
-            const data = $('#profileForm').serialize()
-            $.ajax({
-                url: '@Url.Action("Save", "Profile")',
-                type: 'POST',
-                data: data,
-                success: function (response) {
-                    Swal.fire({
-                        title: 'Информация',
-                        text: response.description,
-                        icon: 'success',
-                        confirmButtonText: 'Окей'
-                    })
-                },
-                error: function (data) {
-                    Swal.fire({
-                        title: 'Информация',
-                        text: 'Ошибка валидации',
-                        icon: 'error',
-                        confirmButtonText: 'Окей'
-                    })
-                }
-            });
-        });
-    
         $("#accessRequest").click(function(event){
             event.preventDefault(); 
             
@@ -135,5 +115,3 @@
         });
     </script>
 }
-
-

@@ -2,14 +2,14 @@
 
 public class MedicalRecord
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
     public string PatientName { get; set; }
     public int Age { get; set; }
     public string BloodType { get; set; }
     public string Allergies { get; set; }
     public List<MedicalReport> MedicalReports { get; set; }
     
-    public MedicalRecord(int id, string patientName, int age, string bloodType, string allergies, List<MedicalReport> medicalReports)
+    public MedicalRecord(long id, string patientName, int age, string bloodType, string allergies, List<MedicalReport> medicalReports)
     {
         Id = id;
         PatientName = patientName;

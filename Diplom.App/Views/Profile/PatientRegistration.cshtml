@@ -1,0 +1,81 @@
+﻿@model Diplom.Domain.ViewModels.PatientRegisterViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container form-container">
+    <h2 class="mb-4">Добавление медицинского отчета</h2>
+    <form id="registerForm">
+        <div class="form-group">
+            <label>Логин:</label>
+            <input asp-for="Login" type="text" class="form-control" id="Login" name="Login">
+            <span class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Пароль:</label>
+            <input asp-for="Password" type="text" class="form-control" id="Password" name="Password">
+            <span class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Подверждение пароля:</label>
+            <input asp-for="PasswordConfirm" type="text" class="form-control" id="PasswordConfirm" name="PasswordConfirm">
+            <span class="error"></span>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label >ФИО:</label>
+            <input asp-for="PatientName" type="text" class="form-control" id="PatientName" name="PatientName">
+            <span class="error"></span>
+        </div>
+        <div class="form-group">
+            <label >Возраст:</label>
+            <input asp-for="Age" type="text" class="form-control" id="Age" name="Age">
+            <span class="error"></span>
+        </div>
+        <div class="form-group">
+            <label >Группа крови:</label>
+            <input asp-for="BloodType" type="text" class="form-control" id="BloodType" name="BloodType">
+            <span class="error"></span>
+        </div>
+        <div class="form-group">
+            <label >Аллергии:</label>
+            <input asp-for="Allergies" type="text" class="form-control" id="Allergies" name="Allergies">
+            <span class="error"></span>
+        </div>
+        <input type="hidden" id="Initiator" name="Initiator" value="@User.Identity.Name">
+        <button type="submit" id="addNewPatient" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+
+@section Scripts
+{
+    <script>     
+        $('#addNewPatient').on('click', function (e) {
+            e.preventDefault();
+            const data = $('#registerForm').serialize()
+            $.ajax({
+                url: '@Url.Action("PatientRegistration", "Profile")',
+                type: 'POST',
+                data: data,
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей'
+                    })
+                },
+                error: function (data) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
+                }
+            });
+        });
+    </script>
+}

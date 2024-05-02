@@ -54,7 +54,7 @@ public class BlockchainBackgroundService : BackgroundService, IBlockchainBackgro
         
         foreach (var buffer in buffers)
         {
-                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Login == buffer.Login);
+                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Login == buffer.Addressee);
                 CryptographyHelper.Encrypt(buffer.Data, user.PublickKey, out var encryptedData, out var encryptedKey, out var encryptedIv);
                 var dataBlock = new DataBlock(buffer.Login, buffer.Addressee, buffer.OperationName, encryptedKey, encryptedIv, encryptedData);
                 blockchain.AddBlock(new Block(blockchain.GetLatestBlock().Index + 1, new DateTime(),

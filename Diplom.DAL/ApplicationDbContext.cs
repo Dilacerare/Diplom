@@ -16,6 +16,8 @@ public class ApplicationDbContext : DbContext
     
     public DbSet<User> Users { get; set; }
     public DbSet<Buffer> Buffers { get; set; }
+    
+    public DbSet<AccessPermission> AccessPermissions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -66,6 +68,31 @@ public class ApplicationDbContext : DbContext
             builder.Property(x => x.Data).IsRequired();
             builder.Property(x => x.Addressee).IsRequired();
             builder.Property(x => x.OperationName).IsRequired();
+                
+        });
+        
+        modelBuilder.Entity<AccessPermission>(builder =>
+        {
+            builder.ToTable("AccessPermissions").HasKey(x => x.Id);
+            
+            builder.HasData(new AccessPermission[]
+            {
+                new AccessPermission()
+                {
+                    Id = 1,
+                    Initiator = "Admin",
+                    Addressee = "Dilacerare",
+                    Status = AccessStatus.Ended,
+                    Date = DateTime.Now
+                }
+            });
+            
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
+            
+            builder.Property(x => x.Initiator).IsRequired();
+            builder.Property(x => x.Addressee).IsRequired();
+            builder.Property(x => x.Status).IsRequired();
+            builder.Property(x => x.Date).IsRequired();
                 
         });
     }
