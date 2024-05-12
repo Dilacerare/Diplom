@@ -87,20 +87,20 @@ public class UserService : IUserService
         }
     }
     
-    public async Task<BaseResponse<IEnumerable<UserViewModel>>> GetUsers()
+    public async Task<BaseResponse<IEnumerable<UserViewModel>>> GetUsers(Role role)
     {
         try
         {
             Blockchain blockchain = BlockchainFileManager.LoadBlockchain("..\\Diplom.Blockchain\\Source\\blockchain.json");
             
             var users = await _userRepository.GetAll()
+                .Where(x => x.Role == role)
                 .Select(x => new UserViewModel()
                     {
                         Id = x.Id,
                         Login = x.Login,
                         Role = x.Role.GetDisplayName(),
                         MedicalCard = JsonConvert.DeserializeObject<MedicalRecord>(CryptographyHelper.Decrypt(CryptographyHelper.DataFromBlock(blockchain, x.HashCode).EncryptedData, x.PrivateKey, CryptographyHelper.DataFromBlock(blockchain, x.HashCode).EncryptedKey, CryptographyHelper.DataFromBlock(blockchain, x.HashCode).EncryptedIv))
-                        // MedicalCard = JsonConvert.DeserializeObject<MedicalRecord>(CryptographyHelper.Decrypt(JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedData, x.PrivateKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedKey, JsonConvert.DeserializeObject<DataBlock>(blockchain.GetBlockByHash(x.HashCode).Data).EncryptedIv))
                     }).ToListAsync();
 
             _logger.LogInformation($"[UserService.GetUsers] получено элементов {users.Count}");

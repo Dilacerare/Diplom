@@ -5,37 +5,40 @@
     Layout = "_Layout";
 }
 
-<div style="padding: 40px;"></div>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white">
+          <div class="card-body p-5 text-center">
 
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <span class="anchor"></span>
-                    <div class="card card-account card-outline-secondary border border-white">
-                        <div class="card-header">
-                            <h3 class="mb-0 text-center ParagraphHome">Вход в аккаунт</h3>
-                        </div>
-                        <div class="card-body">
-                            <form autocomplete="on" method="post" asp-controller="Account" asp-action="Login">
-                                <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger text-center"></div>
-                                <div class="form-group">
-                                    <input asp-for="Login" placeholder="Логин" class="form-control textbox-dg font-weight-bold text-center" type="text">
-                                    <div class="form-text">Длина логина должна быть от 3 до 20 символов.</div>
-                                </div>
-                                <div class="form-group">
-                                    <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
-                                </div>
-                                <div class="d-grid gap-2 d-md-block float-right">
-                                    @* <a asp-controller="Account" asp-action="Register" class="btn btn-primary" type="button">Регистрация</a> *@
-                                    <button class="btn btn-success">Отправить</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="mb-5 mt-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Вход</h2>
+              <p class="text-white-50 mb-5">Пожалуйста, введите свой логин и пароль!</p>
+                
+              <form autocomplete="on" method="post" asp-controller="Account" asp-action="Login">
+                  <div asp-validation-summary="All" class="text-danger text-center" style="font-size: 23px; font-family: Impact;"></div>
+                  <div class="mb-4">
+                      <input asp-for="Login" class="form-control form-control-lg" placeholder="Логин">
+                  </div>
+
+                  <div class="mb-4">
+                      <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control form-control-lg">
+                  </div>
+                  
+                  <div class="text-center">
+                      @* <a asp-controller="Account" asp-action="Register" class="btn btn-primary" type="button">Регистрация</a> *@
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Войти</button>
+                  </div>
+              </form>
+
             </div>
+
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
+

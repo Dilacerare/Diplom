@@ -314,7 +314,7 @@ public class ProfileService : IProfileService
             }
             else
             {
-                if (access.Date.AddHours(24) <= DateTime.Now)
+                if (access != null && access.Date.AddHours(24) <= DateTime.Now)
                 {
                     access.Status = AccessStatus.Ended;
                     _accessRepository.Update(access);
@@ -345,4 +345,5 @@ public class ProfileService : IProfileService
             };
         }
     }
+    
 }

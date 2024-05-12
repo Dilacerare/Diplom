@@ -1,6 +1,7 @@
 ﻿using Diplom.Domain.Enum;
 using Diplom.Domain.ViewModels;
 using Diplom.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Diplom.App.Controllers;
@@ -16,6 +17,7 @@ public class ProfileController : Controller
         _accessService = accessService;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Detail(string login)
     {
         if (User.Identity.IsAuthenticated && User.Identity.Name == login)
@@ -120,5 +122,53 @@ public class ProfileController : Controller
             return Json(new { description = response.Description });
         }
         return Json(new { description = response.Description });
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> Notifications(string login)
+    {
+        var response = await _accessService.GetAccesses(login);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        {
+            ViewData["Login"] = login;
+            return View(response.Data);
+        }
+        
+        return StatusCode(StatusCodes.Status500InternalServerError);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> AllowRequest(AccessPermissionViewModel model)
+    {
+        var response = await _accessService.Allow(model);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        {
+            return Json(new { description = response.Description });
+        }
+        return StatusCode(StatusCodes.Status500InternalServerError);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> RefuseRequest(AccessPermissionViewModel model)
+    {
+        var response = await _accessService.Refuse(model);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        {
+            return Json(new { description = response.Description });
+        }
+        return StatusCode(StatusCodes.Status500InternalServerError);
+    }
+    
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> GetNotificationStatus(string login)
+    {
+        var response = await _accessService.NotificationStatus(login);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        {
+            return Json(new { description = response.Data });
+        }
+        return StatusCode(StatusCodes.Status500InternalServerError);
+        
     }
 }

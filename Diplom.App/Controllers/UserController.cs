@@ -1,4 +1,5 @@
-﻿using Diplom.Service.Interfaces;
+﻿using Diplom.Domain.Enum;
+using Diplom.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Diplom.App.Controllers;
@@ -12,12 +13,17 @@ public class UserController : Controller
         _userService = userService;
     }
 
-    public async Task<IActionResult> GetUsers()
+    public async Task<IActionResult> GetUsers(int role)
     {
-        var response = await _userService.GetUsers();
-        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        if (Enum.IsDefined(typeof(Role), role)) // Проверяем, существует ли такое значение в enum Role
         {
-            return View(response.Data);
+            var parsedRole = (Role)role;
+            var response = await _userService.GetUsers(parsedRole);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                ViewData["Title"] = role == 1 ? "Список врачей" : "Список пациентов";
+                return View(response.Data);
+            }
         }
         return RedirectToAction("Index", "Home");
     }

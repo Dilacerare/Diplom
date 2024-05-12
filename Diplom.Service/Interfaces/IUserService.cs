@@ -1,4 +1,5 @@
 ﻿using Diplom.Domain.Entity;
+using Diplom.Domain.Enum;
 using Diplom.Domain.Response;
 using Diplom.Domain.ViewModels;
 
@@ -10,7 +11,7 @@ public interface IUserService
         
     BaseResponse<Dictionary<int, string>> GetRoles();
         
-    Task<BaseResponse<IEnumerable<UserViewModel>>> GetUsers();
+    Task<BaseResponse<IEnumerable<UserViewModel>>> GetUsers(Role role);
         
     Task<IBaseResponse<UserViewModel>> GetUser(string login);
         

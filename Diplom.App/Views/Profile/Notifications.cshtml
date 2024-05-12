@@ -1,0 +1,157 @@
+﻿@using Diplom.Domain.Enum
+@model IEnumerable<Diplom.Domain.ViewModels.AccessPermissionViewModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+    ViewBag.NotificationCheck = true;
+    ViewBag.RequestCheck = true;
+}
+<p class="lead">Ваши уведомления</p>
+
+@{
+    int i = 0;
+}
+
+@foreach (var notification in @Model)
+{
+    @if (notification.Addressee == ViewBag.Login)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="card-text">От кого: @notification.Initiator</p>
+                <p class="card-text">Время: @notification.Date</p>
+                <form id="notificationForm_@i">
+                    <input type="hidden" name="Initiator" value="@notification.Initiator" />
+                    <input type="hidden" name="Addressee" value="@notification.Addressee" />
+                    <input type="hidden" name="Status" value="@notification.Status" />
+                    <input type="hidden" name="Date" value="@notification.Date" />
+                    
+                    @if (notification.Status == AccessStatus.Allowed)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            Разрешен
+                        </div>
+                    }
+                    else if (notification.Status == AccessStatus.Refused)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            Откланён
+                        </div>
+                    }
+                    else if (notification.Status == AccessStatus.Ended)
+                    {
+                        <div class="alert alert-dark" role="alert">
+                            Срок закончен
+                        </div>
+                    }
+                    else
+                    {
+                        <button class="btn btn-primary" data-form-id="@i">Разрешить</button>
+                        <button class="btn btn-danger" data-form-id="@i">Отказать</button>
+                    }
+                </form>
+            </div>
+        </div>
+        {
+            ViewBag.NotificationCheck = false;
+        }
+        i++;
+    }
+}
+
+@if (ViewBag.NotificationCheck)
+{
+    <div class="alert alert-info" role="alert">
+        Уведомлений нет
+    </div>
+}
+
+<hr>
+
+<p class="lead">Ваши запросы</p>
+@foreach (var notification in @Model)
+{
+    @if (notification.Initiator == ViewBag.Login)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="card-text">Для кого: @notification.Addressee</p>
+                <p class="card-text">Время: @notification.Date</p>
+            </div>
+        </div>
+        {
+            ViewBag.RequestCheck = false;
+        }
+    }
+}
+
+@if (ViewBag.RequestCheck)
+{
+    <div class="alert alert-info" role="alert">
+        Запросов нет
+    </div>
+}
+
+@section Scripts
+{
+    <script>     
+        $('button.btn-primary').on('click', function (e) {
+            e.preventDefault();
+            console.log($(this)[0].getAttribute("data-form-id"));
+            const formId = $(this)[0].getAttribute("data-form-id");
+            const data = $('#notificationForm_' + formId).serialize();
+            console.log(data);
+            $.ajax({
+                url: '@Url.Action("AllowRequest", "Profile")',
+                type: 'POST',
+                data: data,
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей'
+                    })
+                },
+                error: function (data) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
+                }
+            });
+        });
+        
+        $('button.btn-danger').on('click', function (e) {
+                    e.preventDefault();
+                    console.log($(this)[0].getAttribute("data-form-id"));
+                    const formId = $(this)[0].getAttribute("data-form-id");
+                    const data = $('#notificationForm_' + formId).serialize();
+                    console.log(data);
+                    $.ajax({
+                        url: '@Url.Action("RefuseRequest", "Profile")',
+                        type: 'POST',
+                        data: data,
+                        success: function (response) {
+                            Swal.fire({
+                                title: 'Информация',
+                                text: response.description,
+                                icon: 'success',
+                                confirmButtonText: 'Окей'
+                            })
+                        },
+                        error: function (data) {
+                            Swal.fire({
+                                title: 'Информация',
+                                text: 'Ошибка валидации',
+                                icon: 'error',
+                                confirmButtonText: 'Окей'
+                            })
+                        }
+                    });
+                });
+    </script>
+}

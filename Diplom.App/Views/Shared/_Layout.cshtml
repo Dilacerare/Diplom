@@ -6,41 +6,39 @@
     <title>@ViewData["Title"] - Diplom.App</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/backImage.css"/>
     <link rel="stylesheet" href="~/Diplom.App.styles.css" asp-append-version="true"/>
 </head>
-<body>
+<body class="backgroundImage">
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Expand at lg</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">МедиБлок</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Главная</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="#">Action</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Another action</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </li>
-                    </ul>
-                </li>
+                @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" asp-controller="User" asp-action="GetUsers" asp-route-role="1">Список врачей</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" asp-controller="User" asp-action="GetUsers" asp-route-role="2">Список пациентов</a>
+                    </li>
+                }
+                @if (User.IsInRole("Patient"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" asp-controller="User" asp-action="GetUsers" asp-route-role="1">Список врачей</a>
+                    </li>
+                }
+                
+
             </ul>
 
             @if (!User.Identity.IsAuthenticated)
@@ -61,10 +59,18 @@
                             @User.Identity.Name
                         </a>
                     </li>
+                    
+                    <li class="nav-item d-flex justify-content-center"> 
+                        <a asp-controller="Profile" asp-action="Notifications" asp-route-login="@User.Identity.Name">
+                            <img id="notificationImage" src="~/Pictures/notification.png" class="img-fluid pt-2" /> 
+                        </a>
+                    </li>
                 
                     <li class="nav-item">
-                        <form class="nav-link" method="post" asp-controller="Account" asp-action="Logout">
-                            <input type="submit" value="Выход"/>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button type="submit" class="nav-link" style="background: none; border: none; cursor: pointer;">
+                                <span style="color: inherit;">Выход</span>
+                            </button>
                         </form>
                     </li>
                 </ul>
@@ -72,7 +78,7 @@
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
@@ -90,3 +96,31 @@
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script>
+    let notificationImage = document.getElementById("notificationImage");
+
+    let userName = "@User.Identity.Name";
+
+    // Формируем URL для AJAX запроса
+    let url = '@Url.Action("GetNotificationStatus", "Profile")' + '?login=' + encodeURIComponent(userName);
+
+    // Делаем AJAX запрос при загрузке страницы
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Получаем статус уведомлений
+            var notificationStatus = data.description;
+
+            // В зависимости от статуса, меняем изображение
+            if (notificationStatus) {
+                notificationImage.src = "/Pictures/bell.png"; // Путь к изображению с уведомлением
+            } else {
+                notificationImage.src = "/Pictures/notification.png"; // Путь к обычному изображению без уведомления
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка при загрузке статуса уведомлений:', error);
+        });
+
+</script>

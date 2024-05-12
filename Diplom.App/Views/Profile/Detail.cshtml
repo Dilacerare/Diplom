@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-body">
                 <form id="profileForm">
-                    <h5 class="card-title">Ваши анализы</h5>
+                    <h5 class="card-title">Ваши данные</h5>
                     <input asp-for="Login" hidden="hidden"/>
                     <div class="mb-3">
                         <label class="form-label text-black-50">ФИО</label>
@@ -42,32 +42,35 @@
         <div class="card">
             <div class="card-body" style="overflow-y: auto; max-height: 300px;">
                 <h5 class="card-title">Медицинские отчеты</h5>
-                <div class="mb-3">
-                    @if (Model.MedicalReports != null && Model.MedicalReports.Any())
+                @if (Model.MedicalReports != null && Model.MedicalReports.Any())
+                {
+                    @foreach (var report in Model.MedicalReports)
                     {
-                        @foreach (var report in Model.MedicalReports)
-                        {
-                            <div class="medical-report-item">
-                                <h6>@report.Conclusion</h6>
-                                <p>@report.Description</p>
-                                <p>@report.Recommendation</p>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-title">@report.Conclusion</h6>
+                                <p class="card-text">@report.Description</p>
+                                <p class="card-text">@report.Recommendation</p>
                             </div>
-                        }
+                        </div>
                     }
-                    else
-                    {
-                        <p>Нет доступных медицинских отчетов</p>
-                    }
-                    <a class="btn btn-primary" asp-controller="Profile" asp-action="AddMedReport" asp-route-login="@Model.Login">
-                        Добавить запись
-                    </a>
-                </div>
+                }
+                else
+                {
+                    <p>Нет доступных медицинских отчетов</p>
+                }
+                <a class="btn btn-primary" asp-controller="Profile" asp-action="AddMedReport" asp-route-login="@Model.Login">
+                    Добавить запись
+                </a>
             </div>
         </div>
-        <a class="btn btn-primary" asp-controller="Profile" asp-action="PatientRegistration">
-            Добавить пациента
-        </a>
-        <button class="btn btn-primary" id="accessRequest">Запросить доступ</button>
+        <div class="card">
+            <div class="card-body">
+                <a class="btn btn-primary" asp-controller="Profile" asp-action="PatientRegistration">
+                    Добавить пациента
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -91,39 +94,6 @@
                     })
                 },
                 error: function (data) {
-                    Swal.fire({
-                        title: 'Информация',
-                        text: 'Ошибка валидации',
-                        icon: 'error',
-                        confirmButtonText: 'Окей'
-                    })
-                }
-            });
-        });
-    
-        $("#accessRequest").click(function(event){
-            event.preventDefault(); 
-            
-            let dataToSend = {
-                Initiator: "@User.Identity.Name",
-                Addressee: "@Model.Login",
-                Status: 0,
-                Date: new Date().toISOString()
-            };
-            
-            $.ajax({
-                url: '@Url.Action("AccessRequest", "Profile")',
-                method: "POST",
-                data: dataToSend,
-                success: function(response){
-                    Swal.fire({
-                        title: 'Информация',
-                        text: response.description,
-                        icon: 'success',
-                        confirmButtonText: 'Окей'
-                    })
-                },
-                error: function(data){
                     Swal.fire({
                         title: 'Информация',
                         text: 'Ошибка валидации',
