@@ -10,12 +10,17 @@ public class Blockchain
 
     [JsonProperty]
     internal int Difficulty { get; set; }
+    
+    private MiningModel miningModel;
 
     public Blockchain(int difficulty)
     {
         Difficulty = difficulty;
         Chain = new List<Block>();
         AddGenesisBlock();
+        
+        // Initialize mining model
+        miningModel = new MiningModel();
     }
 
     internal void AddGenesisBlock()
@@ -30,6 +35,9 @@ public class Blockchain
 
     public void AddBlock(Block block)
     {
+        // Predict optimal difficulty using the model
+        Difficulty = (int)miningModel.PredictOptimalDifficulty((float)DateTime.Now.Ticks, (float)Chain.Count);
+
         block.PreviousHash = GetLatestBlock().Hash;
         block.MineBlock(Difficulty);
         Chain.Add(block);
